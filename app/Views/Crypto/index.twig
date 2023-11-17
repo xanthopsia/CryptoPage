@@ -1,0 +1,18 @@
+{% extends 'Partials/base.twig' %}
+
+{% block content %}
+    <main class="main-content">
+        <div class="crypto-container">
+            {% for crypto in cryptoCollection.get() %}
+                <div class="crypto-box">
+                    {% set symbol = crypto.getSymbol() %}
+                    <h2>{{ crypto.getSymbol() }}</h2>
+                    <p>Change (%): {{ crypto.getPriceChangePercent() }}</p>
+                    <p>Last price (€): {{ crypto.getLastPrice() }}</p>
+                    <p>High price: {{ crypto.getHighPrice() }}</p>
+                    <p>Low price: {{ crypto.getLowPrice() }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
